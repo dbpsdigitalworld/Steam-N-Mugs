@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>Steam N Mugs | Tirur — Cafe · Kitchen · Soulful Bites</title>
+  <!-- Google Fonts: Playfair Display + Poppins for elegant cafe feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #FDF8F2;
+      color: #2D2418;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom scroll warm */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F0E2D4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C2824A;
+      border-radius: 10px;
+    }
+
+    .container {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(253, 248, 242, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(194, 130, 74, 0.2);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #B6622E, #924A1C);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo p {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: #B67B4C;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-icons a {
+      background: rgba(210, 140, 80, 0.1);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #A55F2E;
+      font-size: 1.2rem;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .nav-icons a:hover {
+      background: #C2824A;
+      color: white;
+      transform: scale(0.95);
+    }
+
+    /* ===== HERO SECTION (warm, spacious) ===== */
+    .hero {
+      padding: 42px 0 28px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: #F4E6DB;
+      padding: 6px 20px;
+      border-radius: 60px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #B5602A;
+      margin-bottom: 22px;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.9rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #2D1D12;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(120deg, #C7773E, #A3511E);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: #6D5040;
+      max-width: 380px;
+      margin: 18px auto;
+      font-weight: 400;
+    }
+
+    .stats-bubbles {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin: 24px 0 16px;
+    }
+    .bubble {
+      background: #FFFFFFE0;
+      backdrop-filter: blur(4px);
+      padding: 8px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: #5C3B24;
+      border: 1px solid #F0DFD0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+    .bubble i {
+      color: #CD7A3C;
+      margin-right: 6px;
+    }
+
+    /* main visual — hero image */
+    .hero-img {
+      margin: 28px 0 20px;
+      border-radius: 48px;
+      overflow: hidden;
+      box-shadow: 0 28px 40px -16px rgba(0,0,0,0.2);
+    }
+    .hero-img img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: 0.3s;
+    }
+
+    /* ===== signature dish : full story ===== */
+    .story-card {
+      background: linear-gradient(145deg, #FFF7F0, #FFF3EA);
+      border-radius: 48px;
+      padding: 40px 28px;
+      margin: 44px 0 32px;
+      text-align: center;
+      border: 1px solid #F7E5D6;
+    }
+    .story-icon {
+      font-size: 3rem;
+      background: white;
+      width: 80px;
+      height: 80px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      color: #C46F34;
+    }
+    .story-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .story-tag {
+      background: #EADBCE;
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #9B4E20;
+      margin-top: 20px;
+    }
+
+    /* ===== AMENITIES grid (larger spacing) ===== */
+    .section-head {
+      margin: 56px 0 24px;
+      text-align: center;
+    }
+    .section-head h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #342418;
+    }
+    .section-head p {
+      font-size: 0.85rem;
+      color: #896E58;
+      margin-top: 8px;
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 30px 0 20px;
+    }
+    .amenity {
+      background: white;
+      border-radius: 32px;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.03);
+      border: 1px solid #F1E2D4;
+    }
+    .amenity i {
+      font-size: 2.2rem;
+      color: #D27E42;
+      margin-bottom: 14px;
+    }
+    .amenity h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .amenity p {
+      font-size: 0.75rem;
+      color: #876C56;
+      margin-top: 6px;
+    }
+
+    /* ===== MENU PREVIEW (full, rich) ===== */
+    .menu-preview-card {
+      background: white;
+      border-radius: 44px;
+      padding: 32px 24px;
+      margin: 32px 0;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+      border: 1px solid #F3E3D4;
+    }
+    .menu-category {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 24px 0 12px;
+      color: #B6622E;
+      border-left: 4px solid #CD7A3C;
+      padding-left: 14px;
+    }
+    .menu-category:first-of-type {
+      margin-top: 0;
+    }
+    .menu-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px dashed #F2E2D2;
+    }
+    .menu-row strong {
+      font-weight: 600;
+    }
+    .price {
+      color: #C46F34;
+      font-weight: 700;
+    }
+
+    /* ===== GALLERY (swipe, big visuals) ===== */
+    .gallery-scroll {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 8px 0 16px;
+      margin: 16px 0;
+    }
+    .gallery-scroll::-webkit-scrollbar {
+      height: 4px;
+    }
+    .gallery-item {
+      flex: 0 0 80%;
+      scroll-snap-align: start;
+      border-radius: 40px;
+      overflow: hidden;
+      background: #EEDBCB;
+      box-shadow: 0 15px 28px -8px rgba(0,0,0,0.12);
+    }
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-label {
+      padding: 14px 18px;
+      background: rgba(255,250,240,0.92);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #4A3122;
+    }
+
+    /* ===== INFO SECTION (hours, contact large) ===== */
+    .info-block {
+      background: #FFF9F4;
+      border-radius: 48px;
+      padding: 36px 28px;
+      margin: 44px 0;
+      border: 1px solid #F0E0D0;
+    }
+    .info-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .hours-list p {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #EDDCCE;
+      font-weight: 500;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .contact-detail i {
+      width: 36px;
+      color: #CB783C;
+      font-size: 1.2rem;
+    }
+
+    /* ===== TESTIMONIAL ===== */
+    .testimonial {
+      background: #FCF2E8;
+      border-radius: 48px;
+      padding: 36px 28px;
+      margin: 28px 0;
+      text-align: center;
+    }
+    .stars i {
+      color: #F2B344;
+      font-size: 1rem;
+      margin: 0 2px;
+    }
+    .testimonial p {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 18px 0;
+      font-style: italic;
+    }
+
+    /* ===== CALL TO ACTION ===== */
+    .cta-button {
+      background: #C2753C;
+      color: white;
+      border: none;
+      padding: 18px 24px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-decoration: none;
+      margin: 30px 0 20px;
+      box-shadow: 0 14px 28px -8px rgba(194, 117, 60, 0.3);
+      transition: 0.2s;
+    }
+    .cta-button:active {
+      transform: scale(0.97);
+    }
+
+    /* ===== KAKKANAD NOTE ===== */
+    .update-card {
+      background: #FCF1E6;
+      border-radius: 36px;
+      padding: 24px 20px;
+      margin: 32px 0 48px;
+      text-align: center;
+      border: 1px solid #F1DFCF;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #2D241E;
+      color: #EBDBCE;
+      padding: 48px 24px 36px;
+      border-radius: 48px 48px 0 0;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
+      .hero h1 { font-size: 2.2rem; }
+      .story-card h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <h1>Steam N Mugs</h1>
+        <p>Tirur · Kakkanad</p>
+      </div>
+      <div class="nav-icons">
+        <a href="tel:+919961750700"><i class="fas fa-phone-alt"></i></a>
+        <a href="#" id="mapLink"><i class="fas fa-map-marker-alt"></i></a>
+        <a href="#"><i class="fas fa-heart"></i></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-badge">
+        <i class="fas fa-mug-hot"></i> freshly brewed · tirur
+      </div>
+      <h1>Think Global.<br><span class="highlight">Eat Global.</span></h1>
+      <p class="hero-desc">Where Kerala warmth meets world flavours — cozy corners, fusion magic & midnight conversations.</p>
+      <div class="stats-bubbles">
+        <div class="bubble"><i class="fas fa-star"></i> 4.5 ★ (185+)</div>
+        <div class="bubble"><i class="fas fa-clock"></i> 11am – 12am</div>
+        <div class="bubble"><i class="fas fa-location-dot"></i> Naduvilangadi</div>
+      </div>
+    </div>
+
+    <!-- main visual: your actual cafe image -->
+    <div class="hero-img">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipPjvDiGJiVnwZNHI8HLmT5-4JjHXOXSRraGmkrN=w229-h230-n-k-no-nu" alt="Steam N Mugs Tirur interior">
+    </div>
+
+    <!-- signature story (prawn kunafa) -->
+    <div class="story-card">
+      <div class="story-icon">
+        <i class="fas fa-shrimp"></i>
+      </div>
+      <h2>Prawn Kunafa</h2>
+      <p style="color:#5F4232;">Crispy kataifi, creamy cheese, and succulent prawns — an unexpected fusion that took over Tirur. One bite and you'll know why it's viral.</p>
+      <div class="story-tag"><i class="fas fa-fire"></i> chef’s masterpiece · must try</div>
+    </div>
+
+    <!-- what makes us special (cafe vibe) -->
+    <div class="section-head">
+      <h3>the brew & soul</h3>
+      <p>why locals keep coming back</p>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity"><i class="fas fa-mug-saucer"></i><h4>specialty coffee</h4><p>single origin · latte art</p></div>
+      <div class="amenity"><i class="fas fa-globe-asia"></i><h4>fusion kitchen</h4><p>kerala x global flavors</p></div>
+      <div class="amenity"><i class="fas fa-headphones"></i><h4>chill playlist</h4><p>lo-fi · acoustic evenings</p></div>
+      <div class="amenity"><i class="fas fa-moon"></i><h4>open till midnight</h4><p>night owls welcome</p></div>
+    </div>
+
+    <!-- menu preview (full) -->
+    <div class="section-head">
+      <h3>sip & savour</h3>
+      <p>our most loved picks</p>
+    </div>
+    <div class="menu-preview-card">
+      <div class="menu-category">☕ coffee & brews</div>
+      <div class="menu-row"><span><strong>Signature Latte</strong> (caramel / hazelnut)</span><span class="price">₹149</span></div>
+      <div class="menu-row"><span><strong>Cold Brew</strong> (slow drip)</span><span class="price">₹179</span></div>
+      <div class="menu-row"><span><strong>Spanish Latte</strong> (condensed milk)</span><span class="price">₹169</span></div>
+      
+      <div class="menu-category">🍴 global bites</div>
+      <div class="menu-row"><span><strong>Prawn Kunafa</strong> (viral fusion)</span><span class="price">₹299</span></div>
+      <div class="menu-row"><span><strong>Mexican Mafia Grill</strong> (spicy chicken)</span><span class="price">₹349</span></div>
+      <div class="menu-row"><span><strong>Alfredo Fusion Pasta</strong> (creamy/cheesy)</span><span class="price">₹279</span></div>
+      <div class="menu-row"><span><strong>Woodfire Pizza</strong> (signature masala)</span><span class="price">₹389</span></div>
+      
+      <div class="menu-category">🍰 desserts & more</div>
+      <div class="menu-row"><span><strong>Caramel Cheesecake</strong></span><span class="price">₹159</span></div>
+      <div class="menu-row"><span><strong>Nutella Waffle</strong> with ice cream</span><span class="price">₹189</span></div>
+    </div>
+
+    <!-- soulful frames gallery (original images) -->
+    <div class="section-head">
+      <h3>📸 soulful frames</h3>
+      <p>real moments at steam n mugs</p>
+    </div>
+    <div class="gallery-scroll">
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFAZY9YTBtJG4lMn_NI39uDhtkbDjFyCsS6RwPtzjQIaD0HLtGNXQz5iXbOh0T_C6NJzG_OIkwXP-cDaniKCOvxoVffccheG6r2GX9mEkrAj7b4JZOdPQFnJ3AJTJiG6-802nDW4ZJae28f=s1360-w1360-h1020-rw" alt="Prawn Kunafa">
+        <div class="gallery-label">🍤 crispy prawn kunafa</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHrASw4fUNNiKJQmuYwIu34iE4OykndvGar_RK5qHQIgV5XcMghtV_NPpMZq_vy7hylaBnczi1N2tb2CHUFFd1ClHAd8vVuAW-9gkPHXny4IbSh9YqlDW3tkuq4Ol8xuWrFOpPAbWqNg37J=s1360-w1360-h1020-rw" alt="Mexican Mafia Grill">
+        <div class="gallery-label">✨ mexican mafia grill</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQclUXZKa5iY8kM4q8km70j_Merlw4RgRr5WQ&s" alt="Latte art">
+        <div class="gallery-label">☕ latte perfection</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAE3sNBxGAbihv_DH0iEpivtsD_-waueuQs87E9U0ePau3pL4iR3fT0VZ07-xpjDH5g7Ns3KTDuW-MMLCF7ddq1Q3-Wrd37Cl1D996XhfAdhlfmpjXdENYooyCOX4U1b1xevQYSZ=s1360-w1360-h1020-rw" alt="pizza">
+        <div class="gallery-label">😋 woodfire pizza</div>
+      </div>
+    </div>
+
+    <!-- hours & contact (enlarged) -->
+    <div class="info-block">
+      <div class="info-grid">
+        <div>
+          <h3 style="font-family: 'Playfair Display'; margin-bottom: 20px;"><i class="far fa-clock" style="color:#C7773E;"></i> open everyday</h3>
+          <div class="hours-list">
+            <p><span>Monday – Thursday</span><span>11:00 – 00:00</span></p>
+            <p><span>Friday – Sunday</span><span>11:00 – 00:00</span></p>
+            <p><span>Last order</span><span>11:30 PM</span></p>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family: 'Playfair Display'; margin-bottom: 20px;"><i class="fas fa-map-pin" style="color:#C7773E;"></i> find the brew</h3>
+          <div class="contact-detail"><i class="fas fa-location-dot"></i> <span><strong>Naduvilangadi, Tirur, Malappuram</strong></span></div>
+          <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span>+91 99617 50700</span></div>
+          <div class="contact-detail"><i class="fab fa-instagram"></i> <span>@steamn.mugs</span></div>
+          <div class="contact-detail"><i class="fas fa-store"></i> <span>Also at Kakkanad · Perumbavoor</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- testimonial block -->
+    <div class="testimonial">
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        <span style="font-weight: 700; margin-left: 8px;">4.5 / 5</span>
+      </div>
+      <p>“Steam N Mugs - Tirur Best Cafe in the City. The vibe, the kunafa, the coffee — unmatched!”</p>
+      <p style="font-size: 0.8rem;">— @tirur_qisa · 185+ happy reviews</p>
+    </div>
+
+    <!-- call to action -->
+    <a href="tel:+919961750700" class="cta-button">
+      <i class="fas fa-calendar-week"></i> reserve a table · call now
+    </a>
+
+    <!-- update note about Kakkanad -->
+    <div class="update-card">
+      <i class="fas fa-seedling" style="font-size: 1.8rem; color:#C2753C;"></i>
+      <p style="margin-top: 12px;"><strong>Kakkanad space</strong> is getting a fresh, exciting makeover — stay tuned! Meanwhile <strong>Tirur outlet</strong> is brewing magic daily ☕✨</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <i class="fas fa-mug-hot" style="font-size: 2.2rem; opacity: 0.8; margin-bottom: 18px;"></i>
+  <p style="font-family: 'Playfair Display'; font-size: 1.2rem; font-weight: 700;">Steam N Mugs</p>
+  <p style="font-size: 0.7rem; margin: 10px 0;">since 2017 · perumbavoor · kakkanad · tirur</p>
+  <p style="font-size: 0.7rem; opacity: 0.8;">fusion cafe · comfort food · late night conversations</p>
+  <p style="font-size: 0.7rem; margin-top: 22px;">📍 Naduvilangadi, Tirur, Malappuram</p>
+</footer>
+
+<script>
+  const mapBtn = document.getElementById('mapLink');
+  if(mapBtn) {
+    mapBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('https://maps.google.com/?q=Steam+N+Mugs+Tirur+Naduvilangadi+Malappuram', '_blank');
+    });
+  }
+  // also add direction to location icon click
+  document.querySelectorAll('.contact-detail i.fa-location-dot').forEach(el => {
+    el.parentElement?.addEventListener('click', () => {
+      window.open('https://maps.google.com/?q=Steam+N+Mugs+Tirur+Naduvilangadi+Malappuram', '_blank');
+    });
+  });
+</script>
+</body>
+</html>
